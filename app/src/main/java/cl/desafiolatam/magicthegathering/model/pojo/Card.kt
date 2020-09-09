@@ -8,10 +8,8 @@ data class Card(
     val artist: String,
     @SerializedName("cmc")
     val cmc: Double,
-    @SerializedName("colorIdentity")
-    val colorIdentity: List<String>,
-    @SerializedName("colors")
-    val colors: List<String>,
+    //val colorIdentity: List<String>,
+    //val colors: List<String>,
     @SerializedName("foreignNames")
     val foreignNames: List<ForeignName>,
     @SerializedName("id")
@@ -23,7 +21,7 @@ data class Card(
     @SerializedName("legalities")
     val legalities: List<Legality>,
     @SerializedName("manaCost")
-    val manaCost: String,
+    val manaCost: String?,
     @SerializedName("multiverseid")
     val multiverseid: Int,
     @SerializedName("name")
@@ -34,8 +32,7 @@ data class Card(
     val originalText: String,
     @SerializedName("originalType")
     val originalType: String,
-    @SerializedName("printings")
-    val printings: List<String>,
+    //val printings: List<String>,
     @SerializedName("rarity")
     val rarity: String,
     @SerializedName("rulings")
@@ -44,15 +41,11 @@ data class Card(
     val `set`: String,
     @SerializedName("setName")
     val setName: String,
-    @SerializedName("subtypes")
-    val subtypes: List<Any>,
-    @SerializedName("supertypes")
-    val supertypes: List<Any>,
+    // val subtypes: List<Any>,
+    // val supertypes: List<Any>,
     @SerializedName("text")
     val text: String,
     @SerializedName("type")
-    val type: String,
-    @SerializedName("types")
-    val types: List<String>
-) {
-}
+    val type: String
+    // val types: List<String>
+)

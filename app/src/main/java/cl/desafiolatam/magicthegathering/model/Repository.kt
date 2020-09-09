@@ -16,7 +16,7 @@ import retrofit2.Response
 class Repository(context: Context) {
 
     var cardDatabase = CardsDatabase.getDatabase(context)
-    var cardList = cardDatabase.getCardsDao().getAllCards()
+    var cardList = cardDatabase.getCardsDao().getMinimalCards()
 
     fun loadApiData() {
         val call = RetrofitClient.retrofitInstance().allCards()
@@ -28,38 +28,48 @@ class Repository(context: Context) {
             }
 
             override fun onResponse(call: Call<Cards>, response: Response<Cards>) {
-                // REVISAR
-                saveDatabase(cardConverter(response.body()!!.cards))
+                Log.d("REPO", "${response.code()}")
+                Log.d("REPO", "${response.body()}")
+                if (response.isSuccessful) {
+                    saveDatabase(cardConverter(response.body()!!))
+                } else {
+                    Log.d("REPO", "${call.request().url()}")
+                }
+
             }
         })
     }
 
-    fun cardConverter (cardList : List<Card>) : List<CardsEntity> {
-        return cardList.map {card -> CardsEntity(card.artist,
+    fun cardConverter (cardList : Cards) : List<CardsEntity> {
+        return cardList.cards.map {card -> CardsEntity(card.artist,
             card.cmc,
-            card.colorIdentity,
-            card.colors,
-            card.foreignNames,
             card.id,
-            card.imageUrl,
+            //elvis operator (puede ser nulo)
+            card.imageUrl ?:"",
             card.layout,
-            card.legalities,
-            card.manaCost,
+            card.manaCost ?:"",
             card.multiverseid,
             card.name,
             card.number,
-            card.originalText,
-            card.originalType,
-            card.printings,
+            card.originalText ?:"",
+            card.originalType ?:"",
             card.rarity,
-            card.rulings,
             card.set,
             card.setName,
-            card.subtypes,
+            card.text ?:"",
+            card.type
+        )}
+            /*
+            card.foreignNames,
+            card.legalities,
+            card.rulings,
+            card.types,
+            card.colors,
             card.supertypes,
-            card.text,
-            card.type,
-            card.types)}
+            card.colorIdentity,
+            card.subtypes,
+            card.printings
+            */
     }
 
     fun saveDatabase (listCardsEntity: List<CardsEntity>) {

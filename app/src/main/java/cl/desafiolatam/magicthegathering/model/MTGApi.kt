@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface MTGApi {
 
-    @GET("/cards")
+    @GET("cards")
     fun allCards() : Call<Cards>
 
 }

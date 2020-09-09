@@ -5,7 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import cl.desafiolatam.magicthegathering.model.db.CardsEntity
+import cl.desafiolatam.magicthegathering.model.pojo.CardsMinimal
 
 @Dao
 interface CardsDao {
@@ -15,5 +15,8 @@ interface CardsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCards(cardList : List<CardsEntity>)
+
+    @Query ("SELECT name, id FROM cards_table")
+    fun getMinimalCards() : LiveData<List<CardsMinimal>>
 
 }
