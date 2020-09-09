@@ -22,6 +22,7 @@ class CardsAdapter(private var mtgDataset : MutableList<CardsMinimal>) : Recycle
 
     override fun onBindViewHolder(holder: MTGViewHolder, position: Int) {
         holder.cardName.text = mtgDataset.get(position).name
+        holder.idtext.text = mtgDataset.get(position).id
     }
 
     fun updateItems (it: List<CardsMinimal>) {
@@ -32,5 +33,6 @@ class CardsAdapter(private var mtgDataset : MutableList<CardsMinimal>) : Recycle
 
     class MTGViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var cardName = itemView.card_name
+        var idtext = itemView.id_text
     }
 }
