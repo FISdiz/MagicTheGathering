@@ -56,11 +56,18 @@ class CardImageFragment : Fragment() {
             Log.d("IMAGE_FRAG", "$it")
             Log.d("IMAGE_FRAG", "${it.imageUrl}")
 
+            if (it.imageUrl != null && it.imageUrl != ""){
             Picasso.get().setLoggingEnabled(true)
             Picasso
                 .get()
                 .load("${it.imageUrl}")
                 .into(card_image)
+            } else {
+                Picasso
+                    .get()
+                    .load(R.drawable.magic_dorso)
+                    .into(card_image)
+            }
         })
     }
 }
