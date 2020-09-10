@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.replace
 import androidx.lifecycle.Observer
 import cl.desafiolatam.magicthegathering.R
-import cl.desafiolatam.magicthegathering.model.pojo.Card
 import cl.desafiolatam.magicthegathering.model.pojo.CardsMinimal
 import cl.desafiolatam.magicthegathering.viewmodel.MTGViewModel
 import kotlinx.android.synthetic.main.recycle_cards_fragment.*
@@ -59,6 +59,12 @@ class CardListFragment : Fragment() {
 
         mtgViewModel.cardList.observe(viewLifecycleOwner, Observer {
             adapter.updateItems(it)
+        })
+        adapter.cardSelected.observe(viewLifecycleOwner, Observer {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.main_container, CardImageFragment.newInstance("${it.id}", ""), "image")
+                .addToBackStack("image")
+                .commit()
         })
     }
 

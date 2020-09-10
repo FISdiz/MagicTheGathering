@@ -3,6 +3,7 @@ package cl.desafiolatam.magicthegathering.view
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import cl.desafiolatam.magicthegathering.R
 import cl.desafiolatam.magicthegathering.model.pojo.Card
@@ -20,9 +21,15 @@ class CardsAdapter(private var mtgDataset : MutableList<CardsMinimal>) : Recycle
         return mtgDataset.size
     }
 
+    val cardSelected = MutableLiveData<CardsMinimal>()
+
     override fun onBindViewHolder(holder: MTGViewHolder, position: Int) {
         holder.cardName.text = mtgDataset.get(position).name
         holder.idtext.text = mtgDataset.get(position).id
+
+        holder.itemView.setOnClickListener{
+            cardSelected.value = mtgDataset.get(position)
+        }
     }
 
     fun updateItems (it: List<CardsMinimal>) {

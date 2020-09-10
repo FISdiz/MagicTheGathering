@@ -2,6 +2,7 @@ package cl.desafiolatam.magicthegathering.model
 
 import android.content.Context
 import android.util.Log
+import androidx.lifecycle.LiveData
 import cl.desafiolatam.magicthegathering.model.db.CardsDatabase
 import cl.desafiolatam.magicthegathering.model.db.CardsEntity
 import cl.desafiolatam.magicthegathering.model.pojo.Card
@@ -76,5 +77,9 @@ class Repository(context: Context) {
         CoroutineScope(Dispatchers.IO).launch {
             cardDatabase.getCardsDao().insertCards(listCardsEntity)
         }
+    }
+
+    fun getImage(param1 : String) : LiveData<CardsEntity> {
+        return cardDatabase.getCardsDao().getImageCard(param1)
     }
 }
