@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import cl.desafiolatam.magicthegathering.R
 import cl.desafiolatam.magicthegathering.viewmodel.MTGViewModel
+import com.bumptech.glide.Glide
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_card_image.*
 
@@ -37,7 +38,6 @@ class CardImageFragment : Fragment() {
     }
 
     companion object {
-
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             CardImageFragment().apply {
@@ -50,13 +50,16 @@ class CardImageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("IMAGE_FRAG", "$param1")
+        Log.d("IMAGE_FRAG", "AAAAA $param1")
         val mtgViewModel : MTGViewModel by activityViewModels()
         mtgViewModel.getImagefrom(param1!!).observe(viewLifecycleOwner, Observer {
             Log.d("IMAGE_FRAG", "$it")
             Log.d("IMAGE_FRAG", "${it.imageUrl}")
-            Picasso.get()
-                .load(it.imageUrl)
+
+            Picasso.get().setLoggingEnabled(true)
+            Picasso
+                .get()
+                .load("${it.imageUrl}")
                 .into(card_image)
         })
     }
