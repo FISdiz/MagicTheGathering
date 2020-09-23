@@ -52,7 +52,7 @@ class CardDetailFragment : Fragment() {
         val mtgViewModel : MTGViewModel by activityViewModels()
         mtgViewModel.getDetailsfrom(param1!!).observe(viewLifecycleOwner, Observer {
             det_title.text = it.name
-            det_descr_text.text = it.originalText
+            det_descr_text.text = it.text
             det_manacost_text.text = it.manaCost
             det_type_text.text = it.type
             det_rarity_text.text = it.rarity
