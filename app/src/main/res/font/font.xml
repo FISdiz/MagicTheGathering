@@ -7,4 +7,10 @@
         android:font="@font/matrix_bold"
         />
 
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/matrix_book"
+        />
+
 </font-family>
