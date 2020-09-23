@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import cl.desafiolatam.magicthegathering.R
-import cl.desafiolatam.magicthegathering.model.pojo.Card
 import cl.desafiolatam.magicthegathering.model.pojo.CardsMinimal
 import kotlinx.android.synthetic.main.item_card.view.*
 

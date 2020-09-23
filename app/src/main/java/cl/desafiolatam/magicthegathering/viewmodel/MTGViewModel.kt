@@ -16,8 +16,8 @@ class MTGViewModel(application : Application) : AndroidViewModel(application) {
         repository.loadApiData()
     }
 
-    fun getImagefrom(param1 : String) : LiveData<CardsEntity> {
-        return repository.getImage(param1)
+    fun getDetailsfrom(param1 : String) : LiveData<CardsEntity> {
+        return repository.getCardDetails(param1)
     }
 
 }

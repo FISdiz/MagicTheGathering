@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import cl.desafiolatam.magicthegathering.model.db.CardsDatabase
 import cl.desafiolatam.magicthegathering.model.db.CardsEntity
-import cl.desafiolatam.magicthegathering.model.pojo.Card
 import cl.desafiolatam.magicthegathering.model.pojo.Cards
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -58,7 +57,9 @@ class Repository(context: Context) {
             card.set,
             card.setName,
             card.text ?:"",
-            card.type
+            card.type,
+            card.power,
+            card.toughness
         )}
             /*
             card.foreignNames,
@@ -79,7 +80,7 @@ class Repository(context: Context) {
         }
     }
 
-    fun getImage(param1 : String) : LiveData<CardsEntity> {
-        return cardDatabase.getCardsDao().getImageCard(param1)
+    fun getCardDetails(param1 : String) : LiveData<CardsEntity> {
+        return cardDatabase.getCardsDao().getAllDetails(param1)
     }
 }

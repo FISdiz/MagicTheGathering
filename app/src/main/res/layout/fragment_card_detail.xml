@@ -14,7 +14,7 @@
         app:layout_constraintGuide_end="321dp" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/det_zoom_img"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
@@ -31,13 +31,13 @@
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:background="@color/cardview_shadow_start_color"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton"
+        app:layout_constraintEnd_toEndOf="@+id/det_zoom_img"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageButton"
-        app:layout_constraintTop_toTopOf="@+id/imageButton" />
+        app:layout_constraintStart_toStartOf="@+id/det_zoom_img"
+        app:layout_constraintTop_toTopOf="@+id/det_zoom_img" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/det_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -337,19 +337,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </HorizontalScrollView>
-
-    <Button
-        android:id="@+id/det_fullimg_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/cardview_shadow_start_color"
-        android:drawableTop="@drawable/ic_openfullimage"
-        android:fontFamily="@font/matrix_bold"
-        android:text="Full Image"
-        android:textColor="@color/cardview_light_background"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

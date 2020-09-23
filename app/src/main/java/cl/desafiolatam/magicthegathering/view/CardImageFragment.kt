@@ -10,7 +10,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import cl.desafiolatam.magicthegathering.R
 import cl.desafiolatam.magicthegathering.viewmodel.MTGViewModel
-import com.bumptech.glide.Glide
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_card_image.*
 
@@ -51,9 +50,7 @@ class CardImageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Log.d("IMAGE_FRAG", "AAAAA $param1")
         val mtgViewModel : MTGViewModel by activityViewModels()
-        mtgViewModel.getImagefrom(param1!!).observe(viewLifecycleOwner, Observer {
-            Log.d("IMAGE_FRAG", "$it")
-            Log.d("IMAGE_FRAG", "${it.imageUrl}")
+        mtgViewModel.getDetailsfrom(param1!!).observe(viewLifecycleOwner, Observer {
 
             if (it.imageUrl != null && it.imageUrl != ""){
             Picasso.get().setLoggingEnabled(true)

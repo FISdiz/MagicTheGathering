@@ -46,6 +46,10 @@ data class Card(
     @SerializedName("text")
     val text: String,
     @SerializedName("type")
-    val type: String
+    val type: String,
+    @SerializedName("power")
+    val power: Int,
+    @SerializedName("toughness")
+    val toughness: Int
     // val types: List<String>
 )

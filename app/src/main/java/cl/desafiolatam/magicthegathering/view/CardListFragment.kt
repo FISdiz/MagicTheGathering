@@ -62,8 +62,8 @@ class CardListFragment : Fragment() {
         })
         adapter.cardSelected.observe(viewLifecycleOwner, Observer {
             requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.main_container, CardImageFragment.newInstance("${it.id}", ""), "image")
-                .addToBackStack("image")
+                .replace(R.id.main_container, CardDetailFragment.newInstance("${it.id}", ""), "details")
+                .addToBackStack("details")
                 .commit()
         })
     }

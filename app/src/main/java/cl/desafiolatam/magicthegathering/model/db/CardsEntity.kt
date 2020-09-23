@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 import cl.desafiolatam.magicthegathering.model.pojo.ForeignName
 import cl.desafiolatam.magicthegathering.model.pojo.Legality
 import cl.desafiolatam.magicthegathering.model.pojo.Ruling
+import com.google.gson.annotations.SerializedName
 
 @Entity (tableName = "cards_table")
 data class CardsEntity (
@@ -25,7 +26,9 @@ data class CardsEntity (
     val set: String,
     val setName: String,
     val text: String?,
-    val type: String
+    val type: String,
+    val power: Int,
+    val toughness: Int
 )
 
     /*

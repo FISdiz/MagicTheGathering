@@ -21,5 +21,5 @@ interface CardsDao {
     fun getMinimalCards() : LiveData<List<CardsMinimal>>
 
     @Query ("SELECT * FROM cards_table WHERE id=:id")
-    fun getImageCard(id : String) : LiveData<CardsEntity>
+    fun getAllDetails(id : String) : LiveData<CardsEntity>
 }
