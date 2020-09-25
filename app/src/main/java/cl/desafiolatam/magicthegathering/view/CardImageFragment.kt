@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import cl.desafiolatam.magicthegathering.R
 import cl.desafiolatam.magicthegathering.viewmodel.MTGViewModel
 import com.squareup.picasso.Picasso
+import jp.wasabeef.picasso.transformations.RoundedCornersTransformation
 import kotlinx.android.synthetic.main.fragment_card_image.*
 
 private const val ARG_PARAM1 = "param1"
@@ -57,11 +58,13 @@ class CardImageFragment : Fragment() {
             Picasso
                 .get()
                 .load("${it.imageUrl}")
+                .transform(RoundedCornersTransformation(10,10))
                 .into(card_image)
             } else {
                 Picasso
                     .get()
                     .load(R.drawable.magic_dorso)
+                    .transform(RoundedCornersTransformation(150,0))
                     .into(card_image)
             }
         })

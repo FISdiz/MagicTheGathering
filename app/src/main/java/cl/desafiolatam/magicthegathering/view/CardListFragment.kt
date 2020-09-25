@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.replace
 import androidx.lifecycle.Observer
 import cl.desafiolatam.magicthegathering.R
 import cl.desafiolatam.magicthegathering.model.pojo.CardsMinimal
@@ -23,7 +22,6 @@ class CardListFragment : Fragment() {
 
     private var cardList = ArrayList<CardsMinimal>()
     private lateinit var adapter : CardsAdapter
-    private lateinit var mtgViewModel : MTGViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,6 +54,7 @@ class CardListFragment : Fragment() {
         mtg_recycler.adapter = adapter
 
         val mtgViewModel : MTGViewModel by activityViewModels()
+        mtgViewModel.loadPages(1)
 
         mtgViewModel.cardList.observe(viewLifecycleOwner, Observer {
             adapter.updateItems(it)

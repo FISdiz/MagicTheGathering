@@ -13,11 +13,13 @@ class MTGViewModel(application : Application) : AndroidViewModel(application) {
 
     init {
         repository = Repository(application)
-        repository.loadApiData()
     }
 
     fun getDetailsfrom(param1 : String) : LiveData<CardsEntity> {
         return repository.getCardDetails(param1)
     }
 
+    fun loadPages (page : Int) {
+        repository.loadApiData(page)
+    }
 }

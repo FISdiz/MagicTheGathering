@@ -4,10 +4,12 @@ import cl.desafiolatam.magicthegathering.model.pojo.Cards
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface MTGApi {
 
-    @GET("cards?page=1")
-    fun allCards() : Call<Cards>
+    @GET("cards")
+    fun allCards(@Query("page") page : Int) : Call<Cards>
+
 
 }

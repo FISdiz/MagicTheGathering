@@ -18,8 +18,8 @@ class Repository(context: Context) {
     var cardDatabase = CardsDatabase.getDatabase(context)
     var cardList = cardDatabase.getCardsDao().getMinimalCards()
 
-    fun loadApiData() {
-        val call = RetrofitClient.retrofitInstance().allCards()
+    fun loadApiData(page : Int) {
+        val call = RetrofitClient.retrofitInstance().allCards(page)
 
         call.enqueue(object : Callback<Cards> {
             override fun onFailure(call: Call<Cards>, t: Throwable) {
