@@ -54,7 +54,16 @@ class CardListFragment : Fragment() {
         mtg_recycler.adapter = adapter
 
         val mtgViewModel : MTGViewModel by activityViewModels()
-        mtgViewModel.loadPages(1)
+        val page = 1
+        mtgViewModel.loadPages(page)
+
+        rec_next.setOnClickListener{
+
+        }
+
+        rec_back.setOnClickListener {
+
+        }
 
         mtgViewModel.cardList.observe(viewLifecycleOwner, Observer {
             adapter.updateItems(it)

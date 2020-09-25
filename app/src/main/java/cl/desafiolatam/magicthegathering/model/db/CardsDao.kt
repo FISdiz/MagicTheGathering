@@ -21,9 +21,6 @@ interface CardsDao {
     @Query ("SELECT name, id FROM cards_table")
     fun getMinimalCards() : LiveData<List<CardsMinimal>>
 
-    @Query ("SELECT name, id FROM cards_table")
-    fun getMinimalCards2() : DataSource.Factory<Int, CardsMinimal>
-
     @Query ("SELECT * FROM cards_table WHERE id=:id")
     fun getAllDetails(id : String) : LiveData<CardsEntity>
 }
