@@ -11,6 +11,7 @@ import cl.desafiolatam.magicthegathering.R
 import cl.desafiolatam.magicthegathering.model.pojo.CardsMinimal
 import cl.desafiolatam.magicthegathering.viewmodel.MTGViewModel
 import kotlinx.android.synthetic.main.recycle_cards_fragment.*
+import kotlinx.coroutines.selects.select
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -67,8 +68,24 @@ class CardListFragment : Fragment() {
         }
 
         rec_back.setOnClickListener {
-            var nextPage = --actualPage
-            mtgViewModel.loadPages(nextPage)
+            var BackOnePage = --actualPage
+            mtgViewModel.loadPages(BackOnePage)
+        }
+
+        var typedPage = rec_page_num.text.toString()
+
+        if (typedPage.isEmpty()){
+            typedPage = "1"
+            var selectedPage = Integer.parseInt(typedPage)
+            rec_button_page.setOnClickListener {
+                mtgViewModel.loadPages(selectedPage)
+            }
+
+        } else {
+            var selectedPage = Integer.parseInt(typedPage)
+            rec_button_page.setOnClickListener {
+                mtgViewModel.loadPages(selectedPage)
+            }
         }
 
         adapter.cardSelected.observe(viewLifecycleOwner, Observer {

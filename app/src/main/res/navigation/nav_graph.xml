@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="cl.desafiolatam.magicthegathering.view.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_cardListFragment"
+            app:destination="@id/cardListFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_cardDetailFragment"
+            app:destination="@id/cardDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardListFragment"
+        android:name="cl.desafiolatam.magicthegathering.view.CardListFragment"
+        android:label="recycle_cards_fragment"
+        tools:layout="@layout/recycle_cards_fragment" >
+        <action
+            android:id="@+id/action_cardListFragment_to_cardDetailFragment"
+            app:destination="@id/cardDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardDetailFragment"
+        android:name="cl.desafiolatam.magicthegathering.view.CardDetailFragment"
+        android:label="fragment_card_detail"
+        tools:layout="@layout/fragment_card_detail" >
+        <action
+            android:id="@+id/action_cardDetailFragment_to_cardImageFragment"
+            app:destination="@id/cardImageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardImageFragment"
+        android:name="cl.desafiolatam.magicthegathering.view.CardImageFragment"
+        android:label="fragment_card_image"
+        tools:layout="@layout/fragment_card_image" />
+</navigation>

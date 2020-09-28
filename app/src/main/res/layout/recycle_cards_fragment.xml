@@ -53,4 +53,13 @@
         app:layout_constraintStart_toEndOf="@+id/rec_back"
         app:layout_constraintTop_toBottomOf="@+id/mtg_recycler" />
 
+    <ImageButton
+        android:id="@+id/rec_button_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_openfullimage"
+        app:layout_constraintBottom_toBottomOf="@+id/rec_page_num"
+        app:layout_constraintStart_toEndOf="@+id/rec_page_num"
+        app:layout_constraintTop_toTopOf="@+id/rec_page_num" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
