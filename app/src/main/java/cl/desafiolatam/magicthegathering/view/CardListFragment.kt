@@ -22,7 +22,7 @@ class CardListFragment : Fragment() {
 
     private var cardList = ArrayList<CardsMinimal>()
     private lateinit var adapter : CardsAdapter
-
+    var actualPage = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,20 +54,23 @@ class CardListFragment : Fragment() {
         mtg_recycler.adapter = adapter
 
         val mtgViewModel : MTGViewModel by activityViewModels()
-        val page = 1
-        mtgViewModel.loadPages(page)
 
-        rec_next.setOnClickListener{
-
-        }
-
-        rec_back.setOnClickListener {
-
-        }
+        mtgViewModel.loadPages(actualPage)
 
         mtgViewModel.cardList.observe(viewLifecycleOwner, Observer {
             adapter.updateItems(it)
         })
+
+        rec_next.setOnClickListener{
+        var nextPage = ++actualPage
+            mtgViewModel.loadPages(nextPage)
+        }
+
+        rec_back.setOnClickListener {
+            var nextPage = --actualPage
+            mtgViewModel.loadPages(nextPage)
+        }
+
         adapter.cardSelected.observe(viewLifecycleOwner, Observer {
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.main_container, CardDetailFragment.newInstance("${it.id}", ""), "details")

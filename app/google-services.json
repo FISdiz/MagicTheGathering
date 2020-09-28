@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "137037549855",
+    "firebase_url": "https://mtgapp-491ab.firebaseio.com",
+    "project_id": "mtgapp-491ab",
+    "storage_bucket": "mtgapp-491ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137037549855:android:d9ba7a3e01eae946f5602a",
+        "android_client_info": {
+          "package_name": "cl.desafiolatam.magicthegathering"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "137037549855-f1keid8hpq7oshs869mbti4qehpnkagv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlSjv4WGB6sAw9fKe9jXvlADnmyyIQBeE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "137037549855-f1keid8hpq7oshs869mbti4qehpnkagv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

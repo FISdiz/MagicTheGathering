@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface MTGApi {
 
     @GET("cards")
-    fun allCards(@Query("page") page : Int) : Call<Cards>
+    fun allCards(@Query("page") page : String) : Call<Cards>
 
 
 }

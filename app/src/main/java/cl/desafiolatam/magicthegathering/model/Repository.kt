@@ -19,11 +19,13 @@ class Repository(context: Context) {
     var cardList = cardDatabase.getCardsDao().getMinimalCards()
 
     fun loadApiData(page : Int) {
-        val call = RetrofitClient.retrofitInstance().allCards(page)
+        val call = RetrofitClient.retrofitInstance().allCards(page.toString())
+        Log.d("REPO", page.toString())
 
         call.enqueue(object : Callback<Cards> {
             override fun onFailure(call: Call<Cards>, t: Throwable) {
                 Log.d("CALL", "LOAD ERROR")
+                Log.d("CALL", t.message.toString())
 
             }
 
