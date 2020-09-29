@@ -5,14 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.view.menu.MenuView
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import cl.desafiolatam.magicthegathering.R
 import cl.desafiolatam.magicthegathering.viewmodel.MTGViewModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_card_detail.*
-import kotlinx.android.synthetic.main.fragment_card_image.*
+import kotlinx.android.synthetic.main.fragment_card_detail.view.*
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -72,7 +71,18 @@ class CardDetailFragment : Fragment() {
                     .load(R.drawable.magic_dorso)
                     .into(det_zoom_img)
             }
+
+            var fav = it.favorite
+
+            if (fav == false) {
+                det_fav_button.setBackgroundResource(R.drawable.ic_magicaddicon)
+            } else {
+                det_fav_button.setBackgroundResource(R.drawable.ic_magicdiscardicon)
+            }
         })
+
+
+
         det_zoom_img.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.main_container, CardImageFragment.newInstance(param1!!, ""), "image")

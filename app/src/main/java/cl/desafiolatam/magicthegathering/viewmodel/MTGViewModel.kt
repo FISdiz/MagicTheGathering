@@ -22,4 +22,9 @@ class MTGViewModel(application : Application) : AndroidViewModel(application) {
     fun loadPages (page : Int) {
         repository.loadApiData(page)
     }
+
+/*    fun updateFavVM (id : String) {
+        repository.updateFavRepo(id)
+    }
+*/
 }

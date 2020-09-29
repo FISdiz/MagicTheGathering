@@ -2,6 +2,8 @@ package cl.desafiolatam.magicthegathering.model.pojo
 
 data class CardsMinimal(
     val name : String,
-    val id : String
+    val id : String,
+    val setName: String,
+    var favorite : Boolean = false
 )
 

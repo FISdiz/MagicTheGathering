@@ -28,7 +28,8 @@ data class CardsEntity (
     val text: String?,
     val type: String,
     val power: Int,
-    val toughness: Int
+    val toughness: Int,
+    var favorite : Boolean? = false
 )
 
     /*

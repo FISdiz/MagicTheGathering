@@ -1,8 +1,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context="cl.desafiolatam.magicthegathering.view.CardDetailFragment">
 
 
@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="263dp" />
+        app:layout_constraintGuide_end="220dp" />
 
     <ImageButton
         android:id="@+id/det_zoom_img"
@@ -89,22 +89,41 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/view5" />
 
-            <TextView
-                android:id="@+id/det_descr_text"
+            <androidx.core.widget.NestedScrollView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
-                android:fontFamily="@font/matrix_book"
-                android:text="TextView"
-                android:textColor="@color/cardview_light_background"
-                android:textSize="18sp"
+                android:fillViewport="true"
                 app:layout_constraintBottom_toBottomOf="@+id/view5"
                 app:layout_constraintEnd_toEndOf="@+id/view5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/det_description" />
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/view5"
+                app:layout_constraintTop_toBottomOf="@+id/det_description"
+                app:layout_constraintVertical_bias="0.0">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/det_descr_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/matrix_book"
+                        android:text="TextView"
+                        android:textColor="@color/cardview_light_background"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
 
             <View
                 android:id="@+id/view6"
@@ -153,7 +172,7 @@
                 android:id="@+id/det_type"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="45dp"
                 android:background="@color/cardview_shadow_start_color"
 
                 android:fontFamily="@font/matrix_bold"
@@ -187,7 +206,7 @@
                 android:id="@+id/det_rarity"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="45dp"
 
                 android:background="@color/cardview_shadow_start_color"
                 android:fontFamily="@font/matrix_bold"
@@ -285,7 +304,7 @@
                 android:id="@+id/det_artist"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="45dp"
                 android:background="@color/cardview_shadow_start_color"
                 android:fontFamily="@font/matrix_bold"
                 android:gravity="center_horizontal|center_vertical"
@@ -318,7 +337,7 @@
                 android:id="@+id/det_layout"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="45dp"
                 android:background="@color/cardview_shadow_start_color"
                 android:fontFamily="@font/matrix_bold"
                 android:gravity="center_horizontal|center_vertical"
@@ -349,5 +368,18 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </HorizontalScrollView>
+
+    <Button
+        android:id="@+id/det_fav_button"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/design_default_color_on_primary"
+        android:elevation="10dp"
+        android:shadowColor="@color/design_default_color_on_secondary"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

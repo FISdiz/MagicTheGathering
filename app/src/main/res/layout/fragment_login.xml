@@ -6,7 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".view.LoginFragment">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/grunge_texture"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
@@ -22,7 +34,7 @@
             android:text="Login User"
             android:textAlignment="center"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-            android:textColor="@color/colorPrimaryDark" />
+            android:textColor="@color/bottom_nav_item_selector" />
 
         <EditText
             android:id="@+id/login_mail"
@@ -32,6 +44,7 @@
             android:layout_marginBottom="5dp"
             android:background="@drawable/edittext_background"
             android:hint="Insert e-mail"
+            android:inputType="textEmailAddress"
             android:padding="10dp" />
 
         <EditText
@@ -42,6 +55,7 @@
             android:layout_marginBottom="5dp"
             android:background="@drawable/edittext_background"
             android:hint="Password"
+            android:inputType="textPassword"
             android:padding="10dp" />
 
         <Button
@@ -49,11 +63,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
-            android:background="@drawable/button_background"
+            android:background="@color/design_default_color_on_secondary"
+            android:elevation="50dp"
+            android:shadowColor="#FFFFFF"
+            android:shadowRadius="20"
             android:text="Send"
             android:textAllCaps="false"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccent"
+            />
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

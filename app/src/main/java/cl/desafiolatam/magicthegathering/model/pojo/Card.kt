@@ -50,6 +50,7 @@ data class Card(
     @SerializedName("power")
     val power: Int,
     @SerializedName("toughness")
-    val toughness: Int
+    val toughness: Int,
+    var favorite : Boolean = false
     // val types: List<String>
 )
