@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import cl.desafiolatam.magicthegathering.R
 import cl.desafiolatam.magicthegathering.model.pojo.CardsMinimal
 import cl.desafiolatam.magicthegathering.viewmodel.MTGViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.recycle_cards_fragment.*
 import kotlinx.coroutines.selects.select
 
@@ -54,6 +55,8 @@ class CardListFragment : Fragment() {
         adapter = CardsAdapter(cardList)
         mtg_recycler.adapter = adapter
 
+        setButtonBarVisibility(true)
+
         val mtgViewModel : MTGViewModel by activityViewModels()
 
         mtgViewModel.loadPages(actualPage)
@@ -96,6 +99,10 @@ class CardListFragment : Fragment() {
         })
     }
 
-    
-
+    fun setButtonBarVisibility(isVisible: Boolean) {
+        val view: BottomNavigationView? = getActivity()?.findViewById(R.id.bottomNav)
+        if (view != null) {
+            view.visibility = if (isVisible) View.VISIBLE else View.GONE
+        }
+    }
 }

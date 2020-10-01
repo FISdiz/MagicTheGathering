@@ -8,11 +8,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import cl.desafiolatam.magicthegathering.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.internal.ContextUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.main_activity.*
 
 class LoginFragment : Fragment() {
 
@@ -34,6 +37,8 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setButtonBarVisibility(false)
+
         login_send.setOnClickListener {
             val textMail = login_mail.text.toString()
             val textPass = login_password.text.toString()
@@ -47,8 +52,8 @@ class LoginFragment : Fragment() {
         updateUI(currentUser)
     }
 
-    private fun updateUI (currentUser : FirebaseUser?) {
-        if (currentUser!=null) {
+    private fun updateUI(currentUser: FirebaseUser?) {
+        if (currentUser != null) {
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.main_container, CardListFragment.newInstance("", ""), "list")
                 .addToBackStack("list")
@@ -56,9 +61,8 @@ class LoginFragment : Fragment() {
         }
     }
 
-    fun login (user : String, pass: String) {
-        auth.signInWithEmailAndPassword(user,pass).addOnCompleteListener {
-            task ->
+    fun login(user: String, pass: String) {
+        auth.signInWithEmailAndPassword(user, pass).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val user = auth.currentUser
                 Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
@@ -72,7 +76,7 @@ class LoginFragment : Fragment() {
         }
     }
 
-    fun validateEmpty (user:String, pass:String) : Boolean {
+    fun validateEmpty(user: String, pass: String): Boolean {
         if (user.isEmpty()) {
             login_mail.setError("Insert a valid e-mail")
             login_mail.requestFocus()
@@ -84,5 +88,12 @@ class LoginFragment : Fragment() {
             return true
         }
         return false
+    }
+
+    fun setButtonBarVisibility(isVisible: Boolean) {
+        val view: BottomNavigationView? = getActivity()?.findViewById(R.id.bottomNav)
+        if (view != null) {
+            view.visibility = if (isVisible) View.VISIBLE else View.GONE
+        }
     }
 }

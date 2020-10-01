@@ -48,6 +48,9 @@ class CardDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+
         val mtgViewModel : MTGViewModel by activityViewModels()
         mtgViewModel.getDetailsfrom(param1!!).observe(viewLifecycleOwner, Observer {
             det_title.text = it.name
