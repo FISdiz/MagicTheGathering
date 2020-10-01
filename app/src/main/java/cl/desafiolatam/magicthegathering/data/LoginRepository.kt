@@ -1,6 +1,6 @@
 package cl.desafiolatam.magicthegathering.data
 
-import cl.desafiolatam.magicthegathering.data.model.LoggedInUser
+import cl.desafiolatam.magicthegathering.model.LoggedInUser
 
 /**
  * Class that requests authentication and user information from the remote data source and

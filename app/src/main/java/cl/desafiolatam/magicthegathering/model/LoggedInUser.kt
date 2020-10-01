@@ -1,4 +1,4 @@
-package cl.desafiolatam.magicthegathering.data.model
+package cl.desafiolatam.magicthegathering.model
 
 /**
  * Data class that captures user information for logged in users retrieved from LoginRepository
