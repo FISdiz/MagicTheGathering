@@ -17,58 +17,57 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"
         android:fontFamily="@font/matrix_bold"
         android:text="Login User"
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:textColor="@color/bottom_nav_item_selector"
         android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/login_mail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/login_mail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/edittext_background"
         android:hint="Insert e-mail"
         android:inputType="textEmailAddress"
         android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/login_password"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/login_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/edittext_background"
         android:hint="Password"
         android:inputType="textPassword"
         android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/login_register"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_mail" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/login_send"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:background="@color/design_default_color_on_secondary"
         android:elevation="50dp"
         android:shadowColor="#FFFFFF"
@@ -76,14 +75,15 @@
         android:text="Send"
         android:textAllCaps="false"
         android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/login_password"
-        app:layout_constraintTop_toBottomOf="@+id/login_password" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.71000004" />
 
     <Button
         android:id="@+id/login_register"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:background="@color/design_default_color_on_secondary"
         android:elevation="50dp"
         android:shadowColor="#FFFFFF"
@@ -91,8 +91,8 @@
         android:text="Register"
         android:textAllCaps="false"
         android:textColor="@color/colorAccent"
-        app:layout_constraintEnd_toEndOf="@+id/login_password"
-        app:layout_constraintTop_toBottomOf="@+id/login_password" />
+        app:layout_constraintBottom_toBottomOf="@+id/login_send"
+        app:layout_constraintEnd_toEndOf="@+id/login_password" />
 
     <ImageView
         android:id="@+id/imageView4"

@@ -52,15 +52,12 @@ class CardListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter = CardsAdapter(cardList)
-        mtg_recycler.adapter = adapter
-
         setButtonBarVisibility(true)
 
+        adapter = CardsAdapter(cardList)
+        mtg_recycler.adapter = adapter
         val mtgViewModel : MTGViewModel by activityViewModels()
-
         mtgViewModel.loadPages(actualPage)
-
         mtgViewModel.cardList.observe(viewLifecycleOwner, Observer {
             adapter.updateItems(it)
         })
@@ -69,26 +66,9 @@ class CardListFragment : Fragment() {
         var nextPage = ++actualPage
             mtgViewModel.loadPages(nextPage)
         }
-
         rec_back.setOnClickListener {
             var BackOnePage = --actualPage
             mtgViewModel.loadPages(BackOnePage)
-        }
-
-        var typedPage = rec_page_num.text.toString()
-
-        if (typedPage.isEmpty()){
-            typedPage = "1"
-            var selectedPage = Integer.parseInt(typedPage)
-            rec_button_page.setOnClickListener {
-                mtgViewModel.loadPages(selectedPage)
-            }
-
-        } else {
-            var selectedPage = Integer.parseInt(typedPage)
-            rec_button_page.setOnClickListener {
-                mtgViewModel.loadPages(selectedPage)
-            }
         }
 
         adapter.cardSelected.observe(viewLifecycleOwner, Observer {

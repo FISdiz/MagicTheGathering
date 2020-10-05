@@ -44,6 +44,11 @@ class LoginFragment : Fragment() {
             val textPass = login_password.text.toString()
             login(textMail, textPass)
         }
+        login_register.setOnClickListener{
+            val textMail = login_mail.text.toString()
+            val textPass = login_password.text.toString()
+            register(textMail,textPass)
+        }
     }
 
     override fun onStart() {
@@ -70,6 +75,17 @@ class LoginFragment : Fragment() {
                     .replace(R.id.main_container, CardListFragment.newInstance("", ""), "list")
                     .addToBackStack("list")
                     .commit()
+            } else {
+                Toast.makeText(context, "Login Failed", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    fun register(user: String, pass: String) {
+        auth.createUserWithEmailAndPassword(user, pass).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val user = auth.currentUser
+                Toast.makeText(context, "Register Successful", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(context, "Login Failed", Toast.LENGTH_SHORT).show()
             }
