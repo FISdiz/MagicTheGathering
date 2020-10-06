@@ -8,12 +8,12 @@ https://magicthegathering.io
 ```
 
 ## Implementaciones
-[Material Design](https://material.io/develop/android/docs/getting-started) - Utilidades de diseño
-[Retrofit](https://square.github.io/retrofit/) - Consumo de API
-[Picasso](https://square.github.io/picasso/) - Importar imágenes
-[Lifecycle](https://developer.android.com/jetpack/androidx/releases/lifecycle) - Respuesta segun ciclo de vida de los componentes
-[Room](https://developer.android.com/jetpack/androidx/releases/room) - Acceso a base de datos
-[Firebase](https://firebase.google.com/docs/android/setup)
+- [Material Design](https://material.io/develop/android/docs/getting-started) - Utilidades de diseño
+- [Retrofit](https://square.github.io/retrofit/) - Consumo de API
+- [Picasso](https://square.github.io/picasso/) - Importar imágenes
+- [Lifecycle](https://developer.android.com/jetpack/androidx/releases/lifecycle) - Respuesta segun ciclo de vida de los componentes
+- [Room](https://developer.android.com/jetpack/androidx/releases/room) - Acceso a base de datos
+- [Firebase](https://firebase.google.com/docs/android/setup)
 
 ## Capturas de pantalla
 ![Login screen](screenshots/login_img.png "Pantalla de Login")
