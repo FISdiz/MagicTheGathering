@@ -16,7 +16,7 @@ interface CardsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCards(cardList : List<CardsEntity>)
 
-    @Query ("SELECT name, id, favorite, setName FROM cards_table")
+    @Query ("SELECT name, id, setName FROM cards_table")
     fun getMinimalCards() : LiveData<List<CardsMinimal>>
 
     @Query ("SELECT * FROM cards_table WHERE id=:id")

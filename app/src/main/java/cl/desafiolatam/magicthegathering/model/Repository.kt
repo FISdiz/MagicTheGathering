@@ -62,9 +62,8 @@ class Repository(context: Context) {
             card.setName,
             card.text ?:"",
             card.type,
-            card.power,
-            card.toughness
-
+            card.power ?:"",
+            card.toughness ?:""
         )}
             /*
             card.foreignNames,

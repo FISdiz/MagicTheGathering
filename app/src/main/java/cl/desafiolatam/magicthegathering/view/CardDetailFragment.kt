@@ -74,17 +74,7 @@ class CardDetailFragment : Fragment() {
                     .load(R.drawable.magic_dorso)
                     .into(det_zoom_img)
             }
-
-            var fav = it.favorite
-
-            if (fav == false) {
-                det_fav_button.setBackgroundResource(R.drawable.ic_magicaddicon)
-            } else {
-                det_fav_button.setBackgroundResource(R.drawable.ic_magicdiscardicon)
-            }
         })
-
-
 
         det_zoom_img.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction()

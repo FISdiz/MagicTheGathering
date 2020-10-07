@@ -27,9 +27,8 @@ data class CardsEntity (
     val setName: String,
     val text: String?,
     val type: String,
-    val power: Int,
-    val toughness: Int,
-    var favorite : Boolean? = false
+    val power: String,
+    val toughness: String
 )
 
     /*
